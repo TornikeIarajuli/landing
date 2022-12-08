@@ -38,10 +38,15 @@ function App() {
         </button>
         {isShown && (
           <div className="sub-news">
-            <h2 className="sub-news-heading">
-              Currently the game is under development. If you want to get weekly
-              updates, subscribe to our newsletter
-            </h2>
+            <div className="test">
+              <p className="sub-news-heading">
+                Currently the game is under development. If you want to get
+                weekly
+              </p>
+              <p className="sub-news-heading lower">
+                updates, subscribe to our newsletter
+              </p>
+            </div>
 
             <div className="sub-news-wrapper">
               <input
@@ -50,6 +55,7 @@ function App() {
                 id="message"
                 name="message"
                 className="sub-news-input"
+                placeholder="Enter your email"
               />
 
               <button onClick={handleMessage} className="sub-news-btn">
