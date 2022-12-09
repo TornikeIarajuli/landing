@@ -1,11 +1,16 @@
 import "./App.css";
 import React, { useRef, useState } from "react";
+import {firestore, firebase, db} from "./firebase";
+import {addDoc, collection} from "@firebase/firestore";
+import validator from "validator";
 
 function App() {
   const [isShown, setIsShown] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const inputRef = useRef(null);
   const [updated, setUpdated] = useState("");
+  const ref = collection(firestore, "emails")
+
 
   const handleClick = (e) => {
     setIsShown((current) => !current);
@@ -15,11 +20,27 @@ function App() {
     setIsActive((current) => !current);
   };
 
-  const handleMessage = () => {
+  const handleMessage = async (e) => {
+    e.preventDefault()
     setUpdated(inputRef.current.value);
+    const data = {
+      email: inputRef.current.value
+    }
+    try {
+      if(validator.isEmail(data.email)) {
+        addDoc(ref, data)
+        inputRef.current.value = ""
+      } else {
+        inputRef.current.value = "enter a valid e-mail"
+      }
+      
+   } catch(e) {
+      console.log(e);
+   }
   };
 
   let counter = 0;
+  
 
   return (
     <div className="App">
@@ -29,6 +50,7 @@ function App() {
           id="pre_order"
           onClick={() => {
             counter++;
+            
             console.log(counter);
             handleClick();
             handleButton();
