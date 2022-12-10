@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useRef, useState } from "react";
-import {firestore, firebase, db} from "./firebase";
+import {firestore, firebase, db, analytics} from "./firebase";
+import { logEvent } from "firebase/analytics";
 import {addDoc, collection} from "@firebase/firestore";
 import validator from "validator";
 
@@ -10,6 +11,7 @@ function App() {
   const inputRef = useRef(null);
   const [updated, setUpdated] = useState("");
   const ref = collection(firestore, "emails")
+
 
 
   const handleClick = (e) => {
@@ -49,9 +51,7 @@ function App() {
           className={isActive ? "display" : ""}
           id="pre_order"
           onClick={() => {
-            counter++;
-            
-            console.log(counter);
+            logEvent(analytics, "preorder_button_click", "preorder_button_click", "preorder_button_click");
             handleClick();
             handleButton();
           }}
