@@ -59,20 +59,31 @@ function App() {
           PRE-ORDER NOW
         </button>
         {isShown && (
-          <div className="answer">
-            <h2>
-              Currently the game is under development. If you want to get weekly
-              updates, subscribe to our newsletter
-            </h2>
-            <form className="email_wrapper">
-              <input ref={inputRef} type="text" id="message" name="message" />
+          <div className="sub-news">
+            <div className="test">
+              <p className="sub-news-heading">
+                Currently the game is under development. If you want to get
+                weekly
+              </p>
+              <p className="sub-news-heading lower">
+                updates, subscribe to our newsletter
+              </p>
+            </div>
 
-              {/* <h2>Updated: {updated}</h2> */}
+            <div className="sub-news-wrapper">
+              <input
+                ref={inputRef}
+                type="email"
+                id="message"
+                name="message"
+                className="sub-news-input"
+                placeholder="Enter your email"
+              />
 
-              <button className="update_message" onClick={handleMessage}>
+              <button onClick={handleMessage} className="sub-news-btn">
                 Send
               </button>
-            </form>
+            </div>
           </div>
         )}
       </div>

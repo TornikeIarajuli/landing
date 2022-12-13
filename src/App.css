@@ -126,48 +126,88 @@ input,
   padding: 10px;
 }
 
-.update_message {
-  align-items: center;
-  background-clip: padding-box;
-  background-color: #fa6400;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
-    Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: center;
-  line-height: 1.25;
-  margin: 0;
-  min-height: 3rem;
-  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
-  text-decoration: none;
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
-}
-
-.update_message:hover,
-.update_message:focus {
-  background-color: #fb8332;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-}
-
 .update_message:hover {
   transform: translateY(-1px);
 }
 
-.update_message:active {
+.sub-news-input {
+  height: 50px;
+  width: 300px;
+  border: none;
+  border-radius: 10px;
+}
+.sub-news-btn {
+  height: 50px;
+  width: 100px;
+  margin-left: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+.sub-news-btn:hover {
+  height: 50px;
+  width: 100px;
   background-color: #c85000;
-  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-  transform: translateY(0);
+  cursor: pointer;
+}
+.sub-news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.sub-news-heading {
+  width: 100%;
+  font-size: 20px;
+  margin: 0;
+  width: fit-content;
+}
+.sub-news-heading.lower {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sub-news {
+  border-radius: 10px;
+  width: 800px;
+  padding: 100px;
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+@media (max-width: 500px) {
+  .sub-news {
+    width: 100%;
+  }
+  .sub-news-heading {
+    width: 300px;
+  }
+  .sub-news-input {
+    width: 100%;
+  }
+  .sub-news-btn {
+    width: 100%;
+  }
+  .sub-news-wrapper {
+    width: 300px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .sub-news-btn {
+    height: 45px;
+    width: 100px;
+  }
+
+  .sub-news-input {
+    height: 45px;
+    width: 350px;
+  }
 }
