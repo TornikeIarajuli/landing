@@ -183,7 +183,7 @@ input,
   background-color: rgb(255, 255, 255, 0.5);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1000px) {
   .sub-news {
     width: 100%;
   }
@@ -209,6 +209,11 @@ input,
   .sub-news-input {
     height: 45px;
     width: 350px;
+  }
+
+  #pre_order {
+    width: 160px;
+    height: auto;
   }
 }
 
